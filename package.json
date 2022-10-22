@@ -1,0 +1,34 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "https://app.pluralsight.com/course-player?clipId=dafba66a-04a3-4196-b9fd-607758d48fcd\r -------------\r ### Create package.json:\r ```\r npm init -y\r ```\r -------------\r ### Install react and next.js\r ```\r npm install react react-dom next\r ```\r -------------",
+  "main": "index.jsx",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yawarmurtaza/library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yawarmurtaza/library/issues"
+  },
+  "homepage": "https://github.com/Yawarmurtaza/library#readme",
+  "dependencies": {
+    "next": "^12.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
