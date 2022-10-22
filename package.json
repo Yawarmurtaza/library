@@ -2,7 +2,7 @@
   "name": "library",
   "version": "1.0.0",
   "description": "https://app.pluralsight.com/course-player?clipId=dafba66a-04a3-4196-b9fd-607758d48fcd\r -------------\r ### Create package.json:\r ```\r npm init -y\r ```\r -------------\r ### Install react and next.js\r ```\r npm install react react-dom next\r ```\r -------------",
-  "main": "index.jsx",
+  "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",

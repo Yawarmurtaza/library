@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-// import App from "../components/App";
+import App from "../src/components/App";
 export default function Index() {
   const customer = [
     { id: 123, name: "Ahmed" },
@@ -17,5 +17,8 @@ export default function Index() {
   //   console.log("key 123 is undefined");
   // }
 
-  return <div> Welcome!</div>;
+  return (<div>
+   <App/>
+   
+  </div>);
 }
