@@ -4,12 +4,13 @@ import Books from "./books";
 import MenuBar from "./MenuBar";
 
 export default function App() {
-    const [currentTab, setCurrentTab] = useState("Books"); // ["Books", "Aurthors"]
+    const [currentTabValue, setCurrentTabValue] = useState("Books"); // ["Books", "Aurthors"]
 
+    
 
     return (
         <div className="container">
-            <MenuBar currentTab={currentTab} setCurrentTab={setCurrentTab} />
+            <MenuBar currentTab={currentTabValue} setCurrentTab={setCurrentTabValue} />
             <Books />
             <Aurthor />
         </div>
