@@ -21,7 +21,7 @@ export default function Books() {
     // if (allBooks?.length < 4) { AddNewBook2(); }
 
     return (
-        <div className="col-md-4 single-note-item all-category">
+        <div className="row tab-content bg-transparent note-has-grid">
             {allBooks.map(book => <Book book={book} key={book.id}/>)}
         </div>
     );
