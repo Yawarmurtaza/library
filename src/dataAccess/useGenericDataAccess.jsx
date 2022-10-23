@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function GenericDataAccess(seedData, delayTimeoutInMilliSeconds = 500) {
+export default function useGenericDataAccess(seedData, delayTimeoutInMilliSeconds = 500) {
     const [data, setData] = useState();
     const [error, setError] = useState();
 
-    useEffect(() => {
+    useEffect(() => {  
         // async function GetData() {
         //     await new Promise((resolve) => setTimeout(resolve, delayTimeoutInMilliSeconds)); // mimic delay
         //     try {

@@ -1,9 +1,9 @@
 import books from "../data/books.json";
-import GenericDataAccess from "../dataAccess/GenericDataAccess";
+import useGenericDataAccess from "../dataAccess/useGenericDataAccess";
 import { v4 as newGuid } from "uuid";
 
-export default function BooksEntityManager() {
-    const { data: allBooks, error : bookErrors, Add, Update, Delete } = GenericDataAccess(books);
+export default function useBooksEntityManager() {
+    const { data: allBooks, error : booksDataError, Add, Update, Delete } = useGenericDataAccess(books);
 
     function AddBookEntity(title, authorIds, publisherId, publishDate) {
         const id = newGuid();
@@ -23,6 +23,6 @@ export default function BooksEntityManager() {
     }
 
 
-    return { allBooks, bookErrors, AddBookEntity, UpdateBookEntity, DeleteBookEntity };
+    return { allBooks, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity };
 
 }

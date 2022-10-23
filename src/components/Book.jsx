@@ -1,5 +1,7 @@
-export default function Book(){
+export default function Book(props){
     return (
-        <div></div>
+        <div>
+            {props.book.title}
+        </div>
     );
 }
