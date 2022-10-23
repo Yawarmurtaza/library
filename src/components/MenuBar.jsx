@@ -6,7 +6,7 @@ export default function MenuBar(props){
         const activeTab = tabProps.tabValue === props.currentTab ?        
         "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active" :
         "nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2";
-        console.log("tabProps.tabValue = " + tabProps.tabValue + " - " + activeTab);
+        
         return (
             <li className="nav-item">
                 <a href="#" className={activeTab} onClick={() => props.setCurrentTab(tabProps.tabValue)}>

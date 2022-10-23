@@ -11,7 +11,7 @@ export default function App() {
     return (
         <div className="container">
             <MenuBar currentTab={currentTabValue} setCurrentTab={setCurrentTabValue} />
-            <Books />
+            {currentTabValue == "Books" && <Books />}
             <Aurthor />
         </div>
     );
