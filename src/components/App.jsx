@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from "react";
 import useBooksController from "../Controllers/useBooksController";
-import Aurthor from "./Aurthor";
+import Authors from "./Authors";
 import Books from "./books";
 import MenuBar from "./MenuBar";
+import Publishers from "./Publishers";
 
 export const BookContext = createContext({
     allBooks: [], booksDataError: "", AddNewBook: () => { }
@@ -25,7 +26,8 @@ export default function App() {
             <BookContext.Provider value={booksController}>
                 <MenuBar currentTab={currentTabValue} setCurrentTab={setCurrentTabValue} />
                 {currentTabValue == "Books" && <Books />}
-                {currentTabValue == "Aurthor" && <Aurthor />}
+                {currentTabValue == "Aurthor" && <Authors />}
+                {currentTabValue == "Aurthor" && <Publishers />}
             </BookContext.Provider>
         </div>
     );

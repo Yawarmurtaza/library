@@ -1,5 +1,7 @@
+import Author from "./Author";
+
 export default function Authors(){
     return (
-        <div></div>
+        <div><Author/></div>
     );
 }
