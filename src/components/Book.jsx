@@ -15,21 +15,19 @@ export default function Book(props) {
                 stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i}></i>);
             }
 
-            return (
-                <p className="note-inner-content text-secondary">{stars}</p>);
+            return (<p className="note-inner-content text-secondary">{stars}</p>);
         }
         return;
     }
 
     function PrintAuthors() {
-        const authNames = authorsData.filter(auth => props.book.authorIds.includes(auth.id)).map(a => a);
-        if (authNames) {
+        const bookAuthors = authorsData.filter(auth => props.book.authorIds.includes(auth.id));
+        if (bookAuthors) {
             const authLinks = [];
-            for (let i = 0; i < authNames.length; i++) {
-                authLinks.push(<a href="#" onClick={() => { }} key={authNames[i].id}>{authNames[i].name}</a>);
+            bookAuthors.forEach(auth => {
+                authLinks.push(<a href="#" onClick={() => { }} key={auth.id}>{auth.name}</a>);
                 authLinks.push(" | ");
-            }
-
+            });
             authLinks.pop();
             return (<p className="note-inner-content text-mute">{authLinks}</p>);
         }
@@ -37,8 +35,8 @@ export default function Book(props) {
 
     return (<div className="col-md-4 single-note-item all-category">
         <div className="card card-body">
-            <a href="https://www.amazon.ca/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844"  target="_blank">
-            <h5 className="note-title text-truncatew-75 mb-0 text-info">{props.book.title}</h5>
+            <a href="https://www.amazon.ca/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844" target="_blank">
+                <h5 className="note-title text-truncatew-75 mb-0 text-info">{props.book.title}</h5>
             </a>
 
             <div className="note-content">
@@ -53,9 +51,8 @@ export default function Book(props) {
             <div className="d-flex align-items-center">
                 <span className="mr-2">{<PrintStars />}</span>
             </div>
-            
-            <div className="d-flex align-items-center">
 
+            <div className="d-flex align-items-center">
                 <span className="mr-2">
                     <i className="fa fa-edit fa-lg"></i>
                 </span>
