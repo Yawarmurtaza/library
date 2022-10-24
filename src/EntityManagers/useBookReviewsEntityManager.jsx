@@ -2,7 +2,7 @@ import bookReviews from "../data/bookReviews.json";
 import useGenericDataAccess from "../dataAccess/useGenericDataAccess";
 import { v4 as newGuid } from "uuid";
 
-export default function useAuthorsEntityManager() {
+export default function useBookReviewsEntityManager() {
     const { data: bookReviewsData, error: bookReviewsDataError, Add, Update, Delete } = useGenericDataAccess(bookReviews);
 
 
