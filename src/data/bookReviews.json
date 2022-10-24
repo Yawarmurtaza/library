@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "bookId": 1,
+        "stars": 1        
+    },
+    {
+        "id": 2,
+        "bookId": 4,
+        "stars": 5       
+    },
+    {
+        "id": 3,
+        "bookId": 3,
+        "stars": 3       
+    },
+    {
+        "id": 4,
+        "bookId": 2,
+        "stars": 2       
+    }
+]

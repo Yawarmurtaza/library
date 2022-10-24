@@ -3,7 +3,7 @@ import useGenericDataAccess from "../dataAccess/useGenericDataAccess";
 import { v4 as newGuid } from "uuid";
 
 export default function useAuthorsEntityManager() {
-    const { data: allAuthors, error: authorsDataError, Add, Update, Delete } = useGenericDataAccess(authors);
+    const { data: authorsData, error: authorsDataError, Add, Update, Delete } = useGenericDataAccess(authors);
 
 
     function AddAuthorEntity(name) {
@@ -13,6 +13,6 @@ export default function useAuthorsEntityManager() {
         return id;
     }
 
-    return { allAuthors, authorsDataError, AddAuthorEntity };
+    return { authorsData, authorsDataError, AddAuthorEntity };
 
 }

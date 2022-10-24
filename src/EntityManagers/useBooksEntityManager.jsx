@@ -3,7 +3,7 @@ import useGenericDataAccess from "../dataAccess/useGenericDataAccess";
 import { v4 as newGuid } from "uuid";
 
 export default function useBooksEntityManager() {
-    const { data: allBooks, error : booksDataError, Add, Update, Delete } = useGenericDataAccess(books);
+    const { data: booksData, error : booksDataError, Add, Update, Delete } = useGenericDataAccess(books);
 
     function AddBookEntity(title, authorIds, publisherId, publishDate) {
         const id = newGuid();
@@ -23,6 +23,6 @@ export default function useBooksEntityManager() {
     }
 
 
-    return { allBooks, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity };
+    return { booksData, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity };
 
 }

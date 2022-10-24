@@ -2,17 +2,53 @@
     {
         "id": 1,
         "title": "Design Patterns",
-        "authorIds": [1,2,3,4 ],
+        "authorIds": [
+            100,
+            101,
+            102,
+            103
+        ],
         "publisherId": 200,
         "publishDate": "2002-06-15",
-        "createDate" : "2022-10-22"
+        "createDate": "2022-10-22"
     },
     {
         "id": 2,
         "title": "C# 2008",
-        "authorIds": [1,2,3,4 ],
-        "publisherId": 200,
+        "authorIds": [
+            104,
+            105,
+            106,
+            107,
+            108
+        ],
+        "publisherId": 201,
         "publishDate": "2002-06-15",
-        "createDate" : "2022-10-22"
-    }
+        "createDate": "2022-10-22"
+    },
+    {
+        "id": 3,
+        "title": "Introduction to Algorithms",
+        "authorIds": [
+            109,
+            110,
+            111,
+            112            
+        ],
+        "publisherId": 202,
+        "publishDate": "2001-07-20",
+        "createDate": "2022-10-22"
+    },
+    {
+        "id": 4,
+        "title": "Algorithms",
+        "authorIds": [            
+            114,
+            113
+        ],
+        "publisherId": 200,
+        "publishDate": "2011-01-02",
+        "createDate": "2022-10-22"
+    }      
+
 ]

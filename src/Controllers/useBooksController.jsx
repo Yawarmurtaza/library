@@ -3,8 +3,8 @@ import useBooksEntityManager from "../EntityManagers/useBooksEntityManager";
 import usePublishersEntityManager from "../EntityManagers/usePublishersEntityManager";
 
 export default function useBooksController() {
-    const { allBooks, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity } = useBooksEntityManager();
-    const { allAuthors, authorsDataError, AddAuthorEntity } = useAuthorsEntityManager();
+    const { booksData, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity } = useBooksEntityManager();
+    const { authorsData, authorsDataError, AddAuthorEntity } = useAuthorsEntityManager();
     const { pubsData, pubsDataError, AddPubEntity } = usePublishersEntityManager();
 
     function AddNewBook(title, authorNames, publisherName, publishDate) {
@@ -13,9 +13,9 @@ export default function useBooksController() {
             throw new Error("invalid publisher name.");
         }
         const authorNamesArray = authorNames ? authorNames.split(",").filter(name => name && name.length > 0) : [];
-        const authorIds = allAuthors?.filter(a => authorNamesArray.includes(a.name)).map(a => a.id);
+        const authorIds = authorsData?.filter(a => authorNamesArray.includes(a.name)).map(a => a.id);
         return AddBookEntity(title, authorIds, publisherId, publishDate);
     }
 
-    return { allBooks, booksDataError, AddNewBook };
+    return { booksData, booksDataError, AddNewBook };
 }

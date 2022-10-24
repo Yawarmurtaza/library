@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { BookContext } from "./App";
+import { AuthorContext, BookContext, PublisherContext } from "./App";
 import Book from "./Book";
 
 export default function Books() {
 
-    const { allBooks, booksDataError, AddNewBook } = useContext(BookContext);
-
-    if (allBooks) { console.log(allBooks); }
+    const { booksData, booksDataError, AddNewBook } = useContext(BookContext);
+    
+    // if (booksData) { console.log(booksData); }
 
     // function AddNewBook2() {
     //     const authorNames = "Gamma,Johnson, Helm  ";
@@ -20,9 +20,12 @@ export default function Books() {
 
     // if (allBooks?.length < 4) { AddNewBook2(); }
 
+   
+
+
     return (
         <div className="row tab-content bg-transparent note-has-grid">
-            {allBooks.map(book => <Book book={book} key={book.id}/>)}
+            {booksData.map(book => <Book book={book} key={book.id} />)}
         </div>
     );
 }
