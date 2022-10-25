@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthorContext, BookReviewContext, PublisherContext } from "./App";
+import BookModal from "./Modals/BookModal";
 
 export default function Book(props) {
 
@@ -34,6 +35,7 @@ export default function Book(props) {
     }
 
     return (<div className="col-md-4 single-note-item all-category">
+        {props.book && <BookModal />}
         <div className="card card-body">
             <a href="https://www.amazon.ca/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844" target="_blank">
                 <h5 className="note-title text-truncatew-75 mb-0 text-info">{props.book.title}</h5>

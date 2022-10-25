@@ -4,7 +4,7 @@ import Book from "./Book";
 
 export default function Books() {
 
-    const { booksData, booksDataError, AddNewBook } = useContext(BookContext);
+    const { booksData } = useContext(BookContext);
     return (
         <div className="row tab-content bg-transparent note-has-grid">
             {booksData.map(book => <Book book={book} key={book.id} />)}

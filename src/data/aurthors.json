@@ -26,7 +26,7 @@
     },
     {
         "id" : 105,
-        "name": " Morgan Skinner",
+        "name": "Morgan Skinner",
         "createDate" : "2022-10-22"
     },
     {
@@ -61,7 +61,7 @@
     },
     {
         "id" : 112,
-        "name": "Clifford Stein ",
+        "name": "Clifford Stein",
         "createDate" : "2022-10-22"
     },
     {
@@ -71,7 +71,7 @@
     },
     {
         "id" : 114,
-        "name": "Robert Sedgewick ",
+        "name": "Robert Sedgewick",
         "createDate" : "2022-10-22"
     }
 ]
