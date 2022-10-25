@@ -22,6 +22,7 @@ export default function useBooksEntityManager() {
         Delete(bookId);
     }
 
+    console.log("Books entity manager");
 
     return { booksData, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity };
 

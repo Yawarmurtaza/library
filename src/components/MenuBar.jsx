@@ -37,6 +37,7 @@ export default function MenuBar(props) {
       </li>
     );
   }
+  console.log("MenuBar component");
   return (
     <ul className="nav nav-pills p-3 bg-white mb-3 founded-pill align-items-center">
       <TabItem tabValue={"Books"} tabText={"Books"} />

@@ -13,6 +13,7 @@ export default function useBookReviewsEntityManager() {
         return id;
     }
 
+    console.log("Book Reviews entity manager");
     return { bookReviewsData, bookReviewsDataError, AddBookReviewEntity };
 
 }

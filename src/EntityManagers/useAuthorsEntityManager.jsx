@@ -13,6 +13,7 @@ export default function useAuthorsEntityManager() {
         return id;
     }
 
+    console.log("Authors entity manager");
     return { authorsData, authorsDataError, AddAuthorEntity };
 
 }

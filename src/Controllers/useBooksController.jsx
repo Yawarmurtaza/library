@@ -20,6 +20,6 @@ export default function useBooksController() {
         const authorIds = authorsData?.filter(a => authorNamesArray.includes(a.name)).map(a => a.id);
         return AddBookEntity(title, authorIds, publisherId, publishDate);
     }
-
+    console.log("Books Controller");
     return { booksData, booksDataError, AddNewBook };
 }

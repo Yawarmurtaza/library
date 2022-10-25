@@ -65,6 +65,5 @@ export default function useGenericDataAccess(seedData, delayTimeoutInMilliSecond
         setData(data.filter(entity => entity.id !== id));
     }
 
-
     return { data, error, Add, Update, Delete };
 }

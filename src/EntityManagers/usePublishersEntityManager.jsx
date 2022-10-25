@@ -11,6 +11,6 @@ export default function usePublishersEntityManager() {
         Add(newPub);
         return id;
     }
-
+    console.log("Publishers entity manager");
     return { pubsData, pubsDataError, AddPubEntity };
 }

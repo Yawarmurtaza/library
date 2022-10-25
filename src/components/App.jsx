@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import Autocomplete from "react-autocomplete";
 import useAuthorsController from "../Controllers/useAuthorsController";
 import useBookModalController from "../Controllers/useBookModalController";
 import useBookReviewsController from "../Controllers/useBookReviewsController";
@@ -8,6 +9,7 @@ import Authors from "./Authors";
 import Books from "./books";
 import MenuBar from "./MenuBar";
 import Publishers from "./Publishers";
+
 export const BookModalContext = createContext({
     displayModalDialogue: false, setDisplayModalDialogue: () => { },
     bookModalTitle: "", setBookModalTitle: () => { },
@@ -29,6 +31,7 @@ export const PublisherContext = createContext({
 export const BookReviewContext = createContext({
     bookReviewsData: [], bookReviewsDataError: "", AddNewBookReview: () => { }
 });
+
 export default function App() {
     const [currentTabValue, setCurrentTabValue] = useState("Books"); // ["Books", "Aurthors"]
     const booksController = useBooksController();
@@ -43,25 +46,21 @@ export default function App() {
     if (!booksController.booksData) {
         return <div className="container">Loading... Please wait</div>;
     }
-
-    //console.log(bookReviewsData);
-
-    return (
-        <div className="container">
-            <BookContext.Provider value={booksController}>
-                <AuthorContext.Provider value={authorsController}>
-                    <PublisherContext.Provider value={publishersController}>
-                        <BookReviewContext.Provider value={bookReviewController}>
-                            <BookModalContext.Provider value={bookModalController}>
-                                <MenuBar currentTab={currentTabValue} setCurrentTab={setCurrentTabValue} />
-                                {currentTabValue == "Books" && <Books />}
-                                {currentTabValue == "Aurthors" && <Authors />}
-                                {currentTabValue == "Publishers" && <Publishers />}
-                            </BookModalContext.Provider>
-                        </BookReviewContext.Provider>
-                    </PublisherContext.Provider>
-                </AuthorContext.Provider>
-            </BookContext.Provider>
-        </div>
-    );
+    console.log("App");
+    return (<div className="container">
+        <BookContext.Provider value={booksController}>
+            <AuthorContext.Provider value={authorsController}>
+                <PublisherContext.Provider value={publishersController}>
+                    <BookReviewContext.Provider value={bookReviewController}>
+                        <BookModalContext.Provider value={bookModalController}>
+                            <MenuBar currentTab={currentTabValue} setCurrentTab={setCurrentTabValue} />
+                            {currentTabValue == "Books" && <Books />}
+                            {currentTabValue == "Aurthors" && <Authors />}
+                            {currentTabValue == "Publishers" && <Publishers />}
+                        </BookModalContext.Provider>
+                    </BookReviewContext.Provider>
+                </PublisherContext.Provider>
+            </AuthorContext.Provider>
+        </BookContext.Provider>
+    </div>);
 }

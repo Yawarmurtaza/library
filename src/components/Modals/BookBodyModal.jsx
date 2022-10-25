@@ -9,10 +9,15 @@ export default function BookBodyModal() {
         bookModalPub, setBookModalPub,
         bookModalPubDate, setBookModalPubDate,
         bookModalId } = useContext(BookModalContext);
-    const top100Films = [
-        { "id": 1, name: "Yawar" }, { "id": 1, name: "Yasir" }, { "id": 1, name: "Yaseen" }, { "id": 1, name: "Yasmeen" }, { "id": 1, name: "Yamin" }
-    ];
-    const names = ["name", "namw"];
+
+    function Title_Change(event) {
+        console.log("title change method - starts");
+        const val = event.target.value;
+        setBookModalTitle(val);
+        console.log("title change method - val = " + val + " - bookModalTitle = " + bookModalTitle);
+        console.log("title change method - ends");
+    }
+    console.log("BookModal window - BODY component");
     return (<div>   <div className="modal-body">
         <div className="notes-box">
             <div className="notes-content">
@@ -58,19 +63,10 @@ export default function BookBodyModal() {
                                     onChange={e => setBookModalPubDate(e.target.value)} />
                             </div>
                         </div>
-                        <div className="col-md-12">
-                            <input
-                                 
-                                className="form-control"
-                                type="text"
-                                placeholder="autoComplete"
-                                autoComplete="on"
-                                {...names} />
-                        </div>
                     </div>
                 </form>
             </div>
         </div>
-    </div></div>
-    );
+    </div>
+    </div>);
 }

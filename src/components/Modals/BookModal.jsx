@@ -28,8 +28,6 @@ export default function BookModal() {
         </div></div>);
     }
 
-
-
     function BookFooterModal() {
         /** 
          * cancel button
@@ -51,7 +49,7 @@ export default function BookModal() {
     }
 
     const cssShowHide = displayModalDialogue === true ? "modal show-modal" : "modal hide-modal";
-
+    console.log("BookModal window component");
     return (
         <>
             <style jsx>{`.show-modal {display: block;}.hide-modal {display: none;}`}</style>

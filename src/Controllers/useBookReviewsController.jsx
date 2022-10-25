@@ -9,6 +9,6 @@ export default function useBookReviewsController() {
         const bookId = booksData.find(b => b.name === bookName);
         return AddBookReviewEntity(bookId, numberOfStars);
     }  
-
+    console.log("Book Reviews Controller");
     return { bookReviewsData, bookReviewsDataError, AddNewBookReview };
 }
