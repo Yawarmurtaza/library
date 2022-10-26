@@ -4,7 +4,7 @@ export default function useGenericDataAccess(seedData, delayTimeoutInMilliSecond
     const [data, setData] = useState();
     const [error, setError] = useState();
 
-    useEffect(() => {  
+    useEffect(() => {
         // async function GetData() {
         //     await new Promise((resolve) => setTimeout(resolve, delayTimeoutInMilliSeconds)); // mimic delay
         //     try {
@@ -35,22 +35,23 @@ export default function useGenericDataAccess(seedData, delayTimeoutInMilliSecond
 
     function Add(newObject) {
         async function addData() {
-          await new Promise((resolve) => setTimeout(resolve, delayTimeoutInMilliSeconds)); // to simulate time delay while adding the data to the data source.
-          setData((existingData) => {
-            return [...existingData, newObject];
-          });
+            await new Promise((resolve) => setTimeout(resolve, delayTimeoutInMilliSeconds)); // to simulate time delay while adding the data to the data source.
+            setData(existingData => {
+                const result = [...existingData, newObject];
+                return result;
+            });
         }
         addData();
-      }
+    }
 
     function Update(id, entityToUpdate) {
         setData(currentData => {
             const existingEntity = currentData.find(entity => entity.id === id);
-            if(existingEntity){
+            if (existingEntity) {
                 // given id of entity exists... lets update
                 // loop through the properties of the entity that we want to update
                 // update each property's value with the one given in the parameter 'entityToUpdate'
-                for(const [key, val] of Object.entries(entityToUpdate)){
+                for (const [key, val] of Object.entries(entityToUpdate)) {
                     // [key, val] is the on we want to update 
                     // currentEntity is the entity in the data source.                    
                     existingEntity[key] = val === undefined ? existingEntity[key] : val; // update each property with new value in entityToUpdate object.

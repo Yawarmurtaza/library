@@ -4,8 +4,6 @@ import { v4 as newGuid } from "uuid";
 
 export default function useBookReviewsEntityManager() {
     const { data: bookReviewsData, error: bookReviewsDataError, Add, Update, Delete } = useGenericDataAccess(bookReviews);
-
-
     function AddBookReviewEntity(bookId, numberOfStars) {
         const id = newGuid();
         const newReview = { id, bookId, numberOfStars, createDate: new Date().toLocaleDateString() };
@@ -13,7 +11,6 @@ export default function useBookReviewsEntityManager() {
         return id;
     }
 
-    console.log("Book Reviews entity manager");
     return { bookReviewsData, bookReviewsDataError, AddBookReviewEntity };
 
 }

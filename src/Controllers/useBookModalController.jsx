@@ -9,9 +9,6 @@ export default function useBookModalController() {
     const [bookModalPub, setBookModalPub] = useState("");
     const [bookModalPubDate, setBookModalPubDate] = useState("");
     const [bookModalId, setBookModalId] = useState(0);
-
-    console.log("BookModal Controller");
-
     return {
         displayModalDialogue, setDisplayModalDialogue,
         bookModalTitle, setBookModalTitle,

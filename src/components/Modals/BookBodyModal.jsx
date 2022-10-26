@@ -10,14 +10,6 @@ export default function BookBodyModal() {
         bookModalPubDate, setBookModalPubDate,
         bookModalId } = useContext(BookModalContext);
 
-    function Title_Change(event) {
-        console.log("title change method - starts");
-        const val = event.target.value;
-        setBookModalTitle(val);
-        console.log("title change method - val = " + val + " - bookModalTitle = " + bookModalTitle);
-        console.log("title change method - ends");
-    }
-    console.log("BookModal window - BODY component");
     return (<div>   <div className="modal-body">
         <div className="notes-box">
             <div className="notes-content">

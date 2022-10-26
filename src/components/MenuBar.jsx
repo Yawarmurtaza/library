@@ -2,8 +2,13 @@ import { useContext } from "react";
 import { BookModalContext } from "./App";
 
 export default function MenuBar(props) {
-  const {setDisplayModalDialogue,
-    setBookModalTitle, } = useContext(BookModalContext);
+  const { displayModalDialogue, setDisplayModalDialogue,
+    bookModalTitle, setBookModalTitle,
+    bookModalAuthors, setBookModalAuthors,
+    bookModalPub, setBookModalPub,
+    bookModalPubDate, setBookModalPubDate,
+    bookModalId } = useContext(BookModalContext);
+
   // sets the active tab (clicked) in the menu bar. It also sets the currentTab value using setCurrentTab function which is handeled by 
   // App component (parent).
   function TabItem(tabProps) {
@@ -22,7 +27,10 @@ export default function MenuBar(props) {
   }
   
   function AddNewBook_Clicked(){
-    setBookModalTitle("");
+    setBookModalTitle("New Title");
+    setBookModalAuthors("NewAuthor");
+    setBookModalPub("Sindh Text Book Board");
+    setBookModalPubDate("2015-08-07");
     setDisplayModalDialogue(true);
   }
 
@@ -36,8 +44,7 @@ export default function MenuBar(props) {
         </a>
       </li>
     );
-  }
-  console.log("MenuBar component");
+  }  
   return (
     <ul className="nav nav-pills p-3 bg-white mb-3 founded-pill align-items-center">
       <TabItem tabValue={"Books"} tabText={"Books"} />

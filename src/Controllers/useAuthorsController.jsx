@@ -5,7 +5,6 @@ export default function useAuthorsController() {
 
     function AddNewAuthor(name) {
         return AddAuthorEntity(name);
-    }  
-    console.log("Authors Controller");
+    }      
     return { authorsData, authorsDataError, AddNewAuthor };
 }

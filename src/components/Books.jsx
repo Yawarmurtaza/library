@@ -5,7 +5,7 @@ import BookModal from "./Modals/BookModal";
 
 export default function Books() {
     const { booksData } = useContext(BookContext);    
-    console.log("Books component");
+    
     return (
         <>
             {booksData && <BookModal />}

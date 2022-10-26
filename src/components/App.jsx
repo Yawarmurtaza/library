@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import Autocomplete from "react-autocomplete";
 import useAuthorsController from "../Controllers/useAuthorsController";
 import useBookModalController from "../Controllers/useBookModalController";
 import useBookReviewsController from "../Controllers/useBookReviewsController";
@@ -16,7 +15,7 @@ export const BookModalContext = createContext({
     bookModalAuthors: "", setBookModalAuthors: () => { },
     bookModalPub: "", setBookModalPub: () => { },
     bookModalPubDate: "", setBookModalPubDate: () => { },
-    bookModalId: 0, setbookModalId: () => { }
+    bookModalId: 0, setBookModalId: () => { }
 });
 
 export const BookContext = createContext({
@@ -26,7 +25,7 @@ export const AuthorContext = createContext({
     authorsData: [], authorsDataError: "", AddNewAuthor: () => { }
 });
 export const PublisherContext = createContext({
-    pubsData: [], pubsDataError: "", AddPubEntity: () => { }
+    pubsData: [], pubsDataError: "", AddNewPublisher: () => { }
 });
 export const BookReviewContext = createContext({
     bookReviewsData: [], bookReviewsDataError: "", AddNewBookReview: () => { }
@@ -45,8 +44,7 @@ export default function App() {
     }
     if (!booksController.booksData) {
         return <div className="container">Loading... Please wait</div>;
-    }
-    console.log("App");
+    }    
     return (<div className="container">
         <BookContext.Provider value={booksController}>
             <AuthorContext.Provider value={authorsController}>

@@ -5,8 +5,14 @@ export default function usePublishersController() {
     const { pubsData, pubsDataError, AddPubEntity } = usePublishersEntityManager();
 
     function AddNewPublisher(name) {
-        return AddPubEntity(name);
+        const publisherExists = pubsData.find(p => p.name === name);
+        
+        if (publisherExists === undefined) { 
+            return AddPubEntity(name); 
+        }
+                
+        return publisherExists.id;
     }
-    console.log("publisher Controller");
+
     return { pubsData, pubsDataError, AddNewPublisher };
 }

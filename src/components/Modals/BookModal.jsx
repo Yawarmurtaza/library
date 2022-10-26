@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { BookContext, BookModalContext } from "../App";
+import { AuthorContext, BookContext, BookModalContext, PublisherContext } from "../App";
 import BookBodyModal from "./BookBodyModal";
 
 export default function BookModal() {
@@ -8,10 +8,13 @@ export default function BookModal() {
         bookModalTitle, setBookModalTitle,
         bookModalAuthors, setBookModalAuthors,
         bookModalPub, setBookModalPub,
-        bookModalPubDate, setbookModalPubDate,
+        bookModalPubDate, setBookModalPubDate,
         bookModalId } = useContext(BookModalContext);
 
-    const { AddNewBook } = useContext(BookContext);
+    const { booksData, AddNewBook } = useContext(BookContext);
+    const { authorsData, AddNewAuthor } = useContext(AuthorContext);
+    const { AddNewPublisher } = useContext(PublisherContext);
+    
 
     function BookHeaderModal({ headerTitle }) {
         headerTitle = headerTitle === undefined ? "Add a new book" : headerTitle;
@@ -29,15 +32,30 @@ export default function BookModal() {
     }
 
     function BookFooterModal() {
-        /** 
-         * cancel button
-         * Save button: call save book using bookContext and close modal.
-         */
-
+      
         function SaveButton_Handler() {
-            // title, authorNames, publisherName, publishDate
-            AddNewBook(bookModalTitle, bookModalAuthors, bookModalPub, bookModalPubDate);
-            console.log("save new book is called.");
+            
+            const newPubId = AddNewPublisher(bookModalPub);
+            const authorNamesArray = bookModalAuthors ?
+            bookModalAuthors.split(",").filter(name => name && name.length > 0)
+                    .map(name => name.trim()) :
+                [];
+
+            const existingAuthorNames = authorsData.map(a => a.name);
+            const newAuthNames = authorNamesArray.filter(name => !existingAuthorNames.includes(name)) + "";            
+            const newAuthNamesArray = newAuthNames.split(",");
+            let newAuthIds = [];
+            newAuthNamesArray.forEach(name => {
+                name = name.trim();
+                if(name.length > 0 && name !== undefined)
+                {
+                    newAuthIds.push(AddNewAuthor(name));
+                }
+            });
+
+            const authorIds = authorsData?.filter(a => authorNamesArray.includes(a.name)).map(a => a.id);
+            const allAuthIds = [...authorIds, ...newAuthIds];            
+            AddNewBook(bookModalTitle, allAuthIds, newPubId, bookModalPubDate);
         }
 
         return (<div>   <div className="modal-footer">
@@ -48,8 +66,7 @@ export default function BookModal() {
         </div></div>);
     }
 
-    const cssShowHide = displayModalDialogue === true ? "modal show-modal" : "modal hide-modal";
-    console.log("BookModal window component");
+    const cssShowHide = displayModalDialogue === true ? "modal show-modal" : "modal hide-modal";    
     return (
         <>
             <style jsx>{`.show-modal {display: block;}.hide-modal {display: none;}`}</style>
