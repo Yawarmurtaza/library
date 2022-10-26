@@ -34,7 +34,7 @@ export default function Book(props) {
         }
     }
 
-    console.log("Book component");
+    console.log("Book component: " + pubsData);
 
     return (<div className="col-md-4 single-note-item all-category">
       

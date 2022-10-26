@@ -8,5 +8,5 @@ export default function usePublishersController() {
         return AddPubEntity(name);
     }
     console.log("publisher Controller");
-    return { pubsData, pubsDataError, AddPubEntity };
+    return { pubsData, pubsDataError, AddNewPublisher };
 }

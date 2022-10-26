@@ -10,6 +10,7 @@ export default function useBooksEntityManager() {
         const newBook = {
             id, title, authorIds, publisherId, publishDate, createDate: new Date().toLocaleDateString()
         };
+        console.log("Inside AddBookEntity: newBook AuthIds= " + newBook.authorIds + " Publisher Id" + newBook.publisherId);
         Add(newBook);
         return id;
     }

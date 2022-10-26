@@ -10,6 +10,7 @@ export default function useAuthorsEntityManager() {
         const id = newGuid();
         const newAuthor = { id, name, createDate: new Date().toLocaleDateString() };
         Add(newAuthor);
+        //authorsData.push(newAuthor);
         return id;
     }
 
