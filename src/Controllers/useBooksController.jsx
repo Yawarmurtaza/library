@@ -10,7 +10,7 @@ export default function useBooksController() {
     function AddNewBook(title, authorNames, publisherName, publishDate) {
         const publisherId = pubsData ? pubsData.find(p => p.name == publisherName.trim()).id : 0;
         if (publisherId === 0) {
-            throw new Error("invalid publisher name.");
+            AddPubEntity(publisherName);
         }
         const authorNamesArray = authorNames ?
             authorNames.split(",").filter(name => name && name.length > 0)
