@@ -2,16 +2,17 @@ import useAuthorsEntityManager from "../EntityManagers/useAuthorsEntityManager";
 import useBooksEntityManager from "../EntityManagers/useBooksEntityManager";
 import usePublishersEntityManager from "../EntityManagers/usePublishersEntityManager";
 import useAuthorsController from "./useAuthorsController";
+import usePublishersController from "./usePublishersController";
 
 export default function useBooksController() {
     const { booksData, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity } = useBooksEntityManager();
     const { authorsData, authorsDataError, AddNewAuthor } = useAuthorsController();
-    const { pubsData, pubsDataError, AddPubEntity } = usePublishersEntityManager();
+    const { pubsData, pubsDataError, AddNewPublisher } = usePublishersController();
 
     function AddNewBook(title, authorNames, publisherName, publishDate) {
         let publisherId = pubsData ? pubsData.find(p => p.name == publisherName.trim())?.id : undefined;
         if (publisherId === undefined) {
-           publisherId = AddPubEntity(publisherName);
+           publisherId = AddNewPublisher(publisherName);
         }
 
         const newPub = pubsData.find(p => p.id === publisherId);
