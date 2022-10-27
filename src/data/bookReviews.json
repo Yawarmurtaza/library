@@ -2,21 +2,84 @@
     {
         "id": 1,
         "bookId": 1,
-        "stars": 4        
+        "stars": 4,
+        "reviews": [
+            {
+                "userName": "Ayat",
+                "stars": 5,
+                "commnets": "amazing book"
+            },
+            {
+                "userName": "Yawar",
+                "stars": 1,
+                "commnets": "Never buy this one."
+            }
+        ]
     },
     {
         "id": 2,
         "bookId": 4,
-        "stars": 5       
+        "stars": 5,
+        "reviews": [
+            {
+                "userName": "Okash",
+                "stars": 5,
+                "commnets": "Bahtreen kitaab ahay sab perho ain mazo wathos."
+            },
+            {
+                "userName": "Moulla Jutt",
+                "stars": 0,
+                "commnets": "Hun dass ay kitaab vich ki likhya ay?"
+            },
+            {
+                "userName": "Meera",
+                "stars": 5,
+                "commnets": "Aisay na mujhy tum dekho..."
+            }
+        ]
     },
     {
         "id": 3,
         "bookId": 3,
-        "stars": 3       
+        "stars": 3,
+        "reviews": [
+            {
+                "userName": "Dilber",
+                "stars": 4,
+                "commnets": "Deffo recommend it."
+            },
+            {
+                "userName": "Super Reader",
+                "stars": 0,
+                "commnets": "I wish there was a negative markings. Hate it!"
+            },
+            {
+                "userName": "Mr. Jatoi",
+                "stars": 0,
+                "commnets": "Asaan khy ta samajh ee na aayi eeha kitaab bhai!!"
+            },
+            {
+                "userName": "Janu German",
+                "stars": 5,
+                "commnets": "It opened my eye and other holes of my body."
+            }
+        ]
     },
     {
         "id": 4,
         "bookId": 2,
-        "stars": 2       
+        "stars": 2,
+        "reviews": [
+            {
+                "userName": "Iman",
+                "stars": 5,
+                "commnets": "Mujhy to bahat achi lagi kitaab. Ap sab ko main highly recommend karoongi."
+            },
+            {
+                "userName": "Murtaza",
+                "stars": 4,
+                "commnets": "Books are the best friends."
+            }
+        ]
     }
 ]

@@ -5,6 +5,7 @@ import useBookReviewsController from "../Controllers/useBookReviewsController";
 import useBooksController from "../Controllers/useBooksController";
 import usePublishersController from "../Controllers/usePublishersController";
 import Authors from "./Authors";
+import BookReview from "./BookReviews";
 import Books from "./books";
 import MenuBar from "./MenuBar";
 import Publishers from "./Publishers";
@@ -55,6 +56,7 @@ export default function App() {
                             {currentTabValue == "Books" && <Books />}
                             {currentTabValue == "Aurthors" && <Authors />}
                             {currentTabValue == "Publishers" && <Publishers />}
+                            {currentTabValue == "BookReview" && <BookReview />}
                         </BookModalContext.Provider>
                     </BookReviewContext.Provider>
                 </PublisherContext.Provider>

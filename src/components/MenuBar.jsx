@@ -49,6 +49,7 @@ export default function MenuBar(props) {
       <TabItem tabValue={"Books"} tabText={"Books"} />
       <TabItem tabValue={"Aurthors"} tabText={"Aurthors"} />
       <TabItem tabValue={"Publishers"} tabText={"Publishers"} />
+      <TabItem tabValue={"BookReview"} tabText={"Book Review"} />
 
       {props.currentTab === "Books" && <AddBookButton />}
 

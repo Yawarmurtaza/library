@@ -52,7 +52,7 @@ export default function BookModal() {
             });
 
             const authorIds = authorsData?.filter(a => authorNamesArray.includes(a.name)).map(a => a.id);
-            const allAuthIds = [...authorIds, ...newAuthIds];
+            const allAuthIds = authorIds.concat(newAuthIds);
             const newBookId = AddNewBook(bookModalTitle, allAuthIds, newPubId, bookModalPubDate);
             AddNewBookReview(newBookId, 0);
         }

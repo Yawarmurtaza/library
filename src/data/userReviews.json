@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "userName": "Ayat",
+        "bookReviews": [
+            {
+                "bookId": 1,
+                "commnets": "This is an amazing book.",
+                "stars": 5
+            },
+            {
+                
+                "bookId": 2,
+                "commnets": "Please dont buy this, its a waste of time and money.",
+                "stars": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "userName": "Yawar",
+        "bookReviews": [
+            {
+                "bookId": 4,
+                "commnets": "It helped me to change the way I think how code should work. Love this book!",
+                "stars": 5
+            },
+            {
+                
+                "bookId": 1,
+                "commnets": "Im not gonna recommend this to anyone.",
+                "stars": 1
+            }
+        ]
+    }
+]
