@@ -3,7 +3,7 @@
         "id": 1,
         "bookId": 1,
         "stars": 4,
-        "reviews": [
+        "userReviews": [
             {
                 "userName": "Ayat",
                 "stars": 5,
@@ -20,7 +20,7 @@
         "id": 2,
         "bookId": 4,
         "stars": 5,
-        "reviews": [
+        "userReviews": [
             {
                 "userName": "Okash",
                 "stars": 5,
@@ -42,7 +42,7 @@
         "id": 3,
         "bookId": 3,
         "stars": 3,
-        "reviews": [
+        "userReviews": [
             {
                 "userName": "Dilber",
                 "stars": 4,
@@ -69,7 +69,7 @@
         "id": 4,
         "bookId": 2,
         "stars": 2,
-        "reviews": [
+        "userReviews": [
             {
                 "userName": "Iman",
                 "stars": 5,

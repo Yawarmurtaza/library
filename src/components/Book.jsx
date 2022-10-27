@@ -50,7 +50,7 @@ export default function Book(props) {
 
         <div className="card card-body">
             <span className="side-stick"></span>
-            <a href="#" target="_blank">
+            <a href="#">
                 <h5 className="note-title text-truncatew-75 mb-0 text-info">{props.book.title}</h5>
             </a>
 
