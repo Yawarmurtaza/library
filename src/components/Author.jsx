@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { AuthorContext, BookContext } from "./App";
+import { BookContext } from "./App";
 
 export default function Author(props) {
 
     const { booksData } = useContext(BookContext);
-    const { authorsData } = useContext(AuthorContext);
-
+    
     function PrintBooksForAuthor() {
         const currentAuthId = props.author.id;
         let booksByAuthor = [];
