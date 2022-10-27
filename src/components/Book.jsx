@@ -1,31 +1,33 @@
 import { useContext } from "react";
 import { AuthorContext, BookReviewContext, PublisherContext } from "./App";
-import BookModal from "./Modals/BookModal";
 
 export default function Book(props) {
 
     const { authorsData } = useContext(AuthorContext);
     const { pubsData } = useContext(PublisherContext);
-    const { bookReviewsData } = useContext(BookReviewContext);
+    const { bookReviewsData, UpdateBookReview } = useContext(BookReviewContext);
 
-    function StarClicked(starId, bookId){
-        console.log("start clicked - " + starId + " bookid = " + bookId);
-        
+    function Star_Clicked(id, bookId, stars, originalStars) {              
+        if(originalStars === 1 && stars === 0){
+            stars = -1;
+        }
+        UpdateBookReview(id, bookId, stars + 1);
     }
 
     function PrintStars() {
-        const starCount = bookReviewsData?.find(review => review.bookId === props.book.id)?.stars;
-        if (starCount) {
-            const stars = [];
-            
+        const review = bookReviewsData?.find(review => review.bookId === props.book.id);  
 
-            for (let i = 0; i < starCount; i++) {
-                stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i} onClick = {() => StarClicked(i, props.book.id)}></i>);
-            }
-            for (let i = starCount; i < 5 ; i++) {
-                stars.push(<i className="fa fa-star fa-hollow-black fa-lg" key={i} onClick = {() => StarClicked(i, props.book.id)}></i>);
-            }
+        if (review) {
+            const stars = [];                     
 
+            for (let i = 0; i < review.stars; i++) {
+                stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i}
+                    onClick={() => Star_Clicked(review.id, props.book.id, i, review.stars)}></i>);
+            }
+            for (let i = review.stars; i < 5; i++) {
+                stars.push(<i className="fa fa-star fa-hollow-black fa-lg" key={i}
+                    onClick={() => Star_Clicked(review.id, props.book.id, i, review.stars)}></i>);
+            }
             return (<p className="note-inner-content text-secondary">{stars}</p>);
         }
         return;
@@ -47,7 +49,8 @@ export default function Book(props) {
     return (<div className="col-md-4 single-note-item all-category">
 
         <div className="card card-body">
-            <a href="https://www.amazon.ca/Introduction-Algorithms-Thomas-H-Cormen/dp/0262033844" target="_blank">
+            <span className="side-stick"></span>
+            <a href="#" target="_blank">
                 <h5 className="note-title text-truncatew-75 mb-0 text-info">{props.book.title}</h5>
             </a>
 

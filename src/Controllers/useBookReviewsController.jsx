@@ -2,13 +2,15 @@ import useBookReviewsEntityManager from "../EntityManagers/useBookReviewsEntityM
 import useBooksEntityManager from "../EntityManagers/useBooksEntityManager";
 
 export default function useBookReviewsController() {
-    const { bookReviewsData, bookReviewsDataError, AddBookReviewEntity } = useBookReviewsEntityManager();
-    const { booksData, booksDataError, AddBookEntity, UpdateBookEntity, DeleteBookEntity } = useBooksEntityManager();
-
-    function AddNewBookReview(bookName, numberOfStars) {
-        const bookId = booksData.find(b => b.name === bookName);
-        return AddBookReviewEntity(bookId, numberOfStars);
-    }  
+    const { bookReviewsData, bookReviewsDataError, AddBookReviewEntity, UpdateBookReviewEntity } = useBookReviewsEntityManager();
     
-    return { bookReviewsData, bookReviewsDataError, AddNewBookReview };
+    function AddNewBookReview(bookId, stars) {
+        return AddBookReviewEntity(bookId, stars);
+    }  
+
+    function UpdateBookReview(id, bookId, stars){
+        UpdateBookReviewEntity(id, bookId, stars);
+    }
+    
+    return { bookReviewsData, bookReviewsDataError, AddNewBookReview, UpdateBookReview};
 }
