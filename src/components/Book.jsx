@@ -8,12 +8,22 @@ export default function Book(props) {
     const { pubsData } = useContext(PublisherContext);
     const { bookReviewsData } = useContext(BookReviewContext);
 
+    function StarClicked(starId, bookId){
+        console.log("start clicked - " + starId + " bookid = " + bookId);
+        
+    }
+
     function PrintStars() {
         const starCount = bookReviewsData?.find(review => review.bookId === props.book.id)?.stars;
         if (starCount) {
             const stars = [];
+            
+
             for (let i = 0; i < starCount; i++) {
-                stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i}></i>);
+                stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i} onClick = {() => StarClicked(i, props.book.id)}></i>);
+            }
+            for (let i = starCount; i < 5 ; i++) {
+                stars.push(<i className="fa fa-star fa-hollow-black fa-lg" key={i} onClick = {() => StarClicked(i, props.book.id)}></i>);
             }
 
             return (<p className="note-inner-content text-secondary">{stars}</p>);
