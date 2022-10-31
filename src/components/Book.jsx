@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthorContext, BookReviewContext, PublisherContext } from "./App";
 
 export default function Book(props) {
@@ -6,19 +6,25 @@ export default function Book(props) {
     const { authorsData } = useContext(AuthorContext);
     const { pubsData } = useContext(PublisherContext);
     const { bookReviewsData, UpdateBookReview } = useContext(BookReviewContext);
+    const [updateInProgress, setUpdateInProgress] = useState(false);
 
-    function Star_Clicked(id, bookId, stars, originalStars) {              
-        if(originalStars === 1 && stars === 0){
+    function Star_Clicked(id, bookId, stars, originalStars) {
+        setUpdateInProgress(true);
+        
+        if (originalStars === 1 && stars === 0) {
             stars = -1;
         }
+
+        
         UpdateBookReview(id, bookId, stars + 1);
+        setUpdateInProgress(false);
     }
 
     function PrintStars() {
-        const review = bookReviewsData?.find(review => review.bookId === props.book.id);  
+        const review = bookReviewsData?.find(review => review.bookId === props.book.id);
 
         if (review) {
-            const stars = [];                     
+            const stars = [];
 
             for (let i = 0; i < review.stars; i++) {
                 stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i}
@@ -65,6 +71,7 @@ export default function Book(props) {
             </p>
             <div className="d-flex align-items-center">
                 <span className="mr-2">{<PrintStars />}</span>
+                {updateInProgress === true ? <span className="fas fa-circle-notch fa-spin"></span> : null}
             </div>
 
             <div className="d-flex align-items-center">

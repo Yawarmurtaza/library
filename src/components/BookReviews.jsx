@@ -29,7 +29,7 @@ export default function BookReview() {
         //for (let i = 0; i < starsToPrint; i++) {
         stars.push(<i className="fa fa-star fa-hollow-black fa-lg text-warning" key={i}></i>);
         //}
-        console.log("===================")
+        
         //for (let i = starsToPrint; i < 5; i++) {
         stars.push(<i className="fa fa-star fa-hollow-black fa-lg" key={i}></i>);
         //}
