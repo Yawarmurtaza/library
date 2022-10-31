@@ -10,14 +10,20 @@ export default function Book(props) {
 
     function Star_Clicked(id, bookId, stars, originalStars) {
         setUpdateInProgress(true);
-        
+
         if (originalStars === 1 && stars === 0) {
             stars = -1;
         }
 
-        
-        UpdateBookReview(id, bookId, stars + 1);
-        setUpdateInProgress(false);
+
+        function doneCallback() {
+
+            setUpdateInProgress(false);
+        }
+
+        setUpdateInProgress(true);
+        UpdateBookReview(id, bookId, stars + 1, doneCallback);
+
     }
 
     function PrintStars() {
